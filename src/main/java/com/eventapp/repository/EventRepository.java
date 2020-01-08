@@ -8,5 +8,5 @@ import com.eventapp.models.Event;
 
 @Transactional
 public interface EventRepository extends CrudRepository<Event, Long>{
-
+	Event findById(long id);
 }
