@@ -17,19 +17,28 @@
 	
 	<h3><a href="/events" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Event List</a></h3>
 	
+	<th:block th:include="messageValidation"></th:block>
+	
 	<form class="container" method="post">
+		<div class="input-field col s12">
 		Name: <input type="text" value="" name="name"/>
+		<span class="helper-text" data-error="wrong" data-success="">Must be at least 4 letters</span>
+		</div>
+		
 		<div class="row">
 			<div class="input-field col s6">
 				Place: <input type="text" value="" name="place"/>
+				<span class="helper-text" data-error="wrong" data-success="">Do not leave blank</span>
 			</div>
 	
 			<div class="input-field col s3">
 				Date: <input type="date" value="" name="date"/>
+				<span class="helper-text" data-error="wrong" data-success="">Do not leave blank</span>
 			</div>
 			
 			<div class="input-field col s3">
 				Time: <input type="time" value="" name="time"/>
+				<span class="helper-text" data-error="wrong" data-success="">Do not leave blank</span>
 			</div>			
 		</div>	
 		
