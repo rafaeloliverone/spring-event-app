@@ -3,19 +3,32 @@
 <head>
    	<title>EventsApp</title>
    	
-   	<!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    
-    <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+   
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+	
+
+     	
 </head>
 <body>
-	<h1>Event Registration</h1>
 	
-	<h3><a href="/events" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Event List</a></h3>
+	<header>
+	    <nav th:fragment="header">
+	        <div class="nav-wrapper">
+	            <a href="/events" class="brand-logo">Register Event</a>
+	            <ul id="nav-mobile" class="right hide-on-med-and-down">
+	                <li><a href="/events" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Event List</a></li>
+	            </ul>
+	        </div>
+	    </nav>
+	</header>
+
+	<h1></h1>
 	
 	<th:block th:include="messageValidation"></th:block>
 	
@@ -27,12 +40,12 @@
 		
 		<div class="row">
 			<div class="input-field col s6">
-				Place: <input type="text" value="" name="place"/>
+				<input type="text" value="" name="place" placeholder="Place"/>
 				<span class="helper-text" data-error="wrong" data-success="">Do not leave blank</span>
 			</div>
 	
 			<div class="input-field col s3">
-				Date: <input type="date" value="" name="date"/>
+				<input type="text" class="datepicker" placeholder="Date">
 				<span class="helper-text" data-error="wrong" data-success="">Do not leave blank</span>
 			</div>
 			
@@ -46,7 +59,26 @@
 		
 	</form>
 	
-	<!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<div th:replace="fragments/fragment :: footer"></div>
+	
+	
+   	 
+            
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"></script>
+	
+ 	<script>
+	    document.addEventListener('DOMContentLoaded', function () {
+	        var options = {
+	            setDefaultDate: true
+	        };
+	        var elems = document.querySelector('.datepicker');
+	        var instance = M.Datepicker.init(elems, options);
+	        
+	    });
+	</script>
+
+    	
+    
 </body>
 </html>
+
