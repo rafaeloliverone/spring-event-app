@@ -45,6 +45,9 @@ public class EventController {
 		Event event = eventRep.findById(id);
 		ModelAndView mv = new ModelAndView("event/eventDetails");
 		mv.addObject("event", event);
+		
+		Iterable<Guest> guests = guestRep.findByEvent(event);
+		mv.addObject("guests", guests);
 		return mv;
 	}
 	

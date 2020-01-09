@@ -64,6 +64,29 @@
 	        
 	    </form>
 	</div>
+	
+	
+    <h3>Guest List</h5>
+	<table class="container">
+	    
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Cpf</th>
+            <th>Cellphone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="guest : ${guests}">
+            <td><span th:text="${guest.name}"></span></td>
+            <td><span th:text="${guest.cpf}"></span></td>
+            <td><span th:text="${guest.cellphone}"></span></td>
+        </tr>
+    </tbody>
+
+</table>
+    
+</div>
  
  
  
