@@ -14,9 +14,8 @@
       
 </head>
 <body>
-
 	
-	<div class="container alert alert-warning" role="alert" th:if="${not #strings.isEmpty(message)}" style="color:red">
+	<div class="container " role="alert" th:if="${not #strings.isEmpty(message)}" style="color:red; text-align:center">
   		<span th:text="${message}"></span>
 	</div>
 	

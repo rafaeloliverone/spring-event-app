@@ -49,6 +49,26 @@ public class EventController {
 		return mv;
 	}
 	
+	@GetMapping("/deleteEvent")
+	public String deleteEvent(long id) {
+		Event event = eventRep.findById(id);
+		eventRep.delete(event);
+		return "redirect:/events";
+	}
+	
+	@GetMapping("/deleteGuest")
+	public String deleteGuest(String cpf) {
+		Guest guest = guestRep.findByCpf(cpf);
+		guestRep.delete(guest);
+		
+		Event event = guest.getEvent();
+		long idEvent = event.getId();
+
+		String cod = "" + idEvent;
+		return "redirect:/" + cod;
+		
+	}
+	
 	@GetMapping("/{id}")
 	public ModelAndView eventDetails(@PathVariable("id") long id) {
 		Event event = eventRep.findById(id);

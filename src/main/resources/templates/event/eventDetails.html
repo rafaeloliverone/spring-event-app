@@ -79,7 +79,7 @@
 	                <i class="material-icons prefix">phone</i>
 	                <i class="material-icons prefix">github</i>
 	                <input id="icon_telephone" type="tel" class="validate" name="cellphone">
-	                <label for="icon_telephone">Cell phone</label>
+	                <label for="icon_telephone">Cell phone (__) _____-___</label>
 	            </div>
 	        </div>
 	        
@@ -88,28 +88,30 @@
 	    </form>
 	</div>
 	
-	<div class="container row" style="margin-top:100px; color: #26a69a;">
+	<div class="container" style="margin-top:100px; color: #26a69a;">
 	    <hr>
-    	<h3 class="center-align" >Guest List</h3>
+    	<h3 class="center-align">Guest List</h3>
     	<hr>
 	
 	</div>
 	
-	<table class="container row" style="margin-top:80px">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Cpf</th>
-            <th>Cell phone</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="guest : ${guests}">
-            <td><span th:text="${guest.name}"></span></td>
-            <td><span th:text="${guest.cpf}"></span></td>
-            <td><span th:text="${guest.cellphone}"></span></td>
-        </tr>
-    </tbody>
+	<table class="container" style="margin-top:80px">
+	    <thead>
+	        <tr>
+	            <th>Name</th>
+	            <th>Cpf</th>
+	            <th>Cell phone</th>
+	            <th>Delete</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="guest : ${guests}">
+	            <td><span th:text="${guest.name}"></span></td>
+	            <td><span th:text="${guest.cpf}"></span></td>
+	            <td><span th:text="${guest.cellphone}"></span></td>
+	            <td><a th:href="${(#mvc.url('EC#deleteGuest').arg(0, guest.cpf)).build()}"><i class="material-icons left">delete</i></a></td>
+	        </tr>
+	    </tbody>
 
 	</table>
     
